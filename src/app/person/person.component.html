@@ -1,1 +1,8 @@
-<p>{{person.vorname}} {{person.nachname}}</p>
+<h2>{{person.vorname}} {{person.nachname}} Details</h2>
+<div><span>id: </span>{{person.id}}</div>
+<div><span>Email: </span>{{person.email}}</div>
+
+<div>
+    <label for="name">Person Name: </label>
+    <input id="name" [(ngModel)]="person.vorname" placeholder="name">
+  </div>
