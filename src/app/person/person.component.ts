@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Person } from '../person';
-
-
+import { PERSONEN } from '../mock-person';
 
 @Component({
   selector: 'app-person',
@@ -9,10 +8,14 @@ import { Person } from '../person';
   styleUrls: ['./person.component.css']
 })
 export class PersonComponent {
-    person: Person = {
-      id: 1,
-      vorname: "Max",
-      nachname: "Mustermann",
-      email: "Max@Mustermann.de"
-    };
+    
+    personen = PERSONEN;
+    selectedPerson?: Person;
+    
+    onSelect(person: Person): void{
+      this.selectedPerson = person;
+    }
 }
+
+
+
