@@ -1,20 +1,13 @@
 <h2>Alle Personen</h2>
+
 <ul class="personen">
-  <li *ngFor="let person of personen" class="selected">
-    <button type="button" (click)="onSelect(person)">
+  <li *ngFor="let person of personen">
+    <button [class.selected]="person === selectedPerson" type="button" (click)="onSelect(person)">
       <span class="person-id">Id: {{person.id}} </span>
       <span class="person-name">Name: {{person.vorname}} {{person.nachname}} </span>
       <span class="person-email">Email: {{person.email}}</span>
     </button>
   </li>
-
-  <div *ngIf="selectedPerson">
-    <h2>{{selectedPerson.vorname | uppercase}} {{selectedPerson.nachname | uppercase}} Details</h2>
-  <div>id: {{selectedPerson.id}}</div>
-  <div>
-    <label for="person-vorname">Vorname:</label>
-    <input id="hero-name" [(ngModel)]="selectedPerson.vorname" placeholder="name">
-  </div>
-  </div>
-
 </ul>
+
+<app-person-detail [person]="selectedPerson"></app-person-detail>
