@@ -23,7 +23,7 @@ export class PersonComponent {
    }
 
   getPersonen(): void{
-    this.personen = this.personService.getPersonen();
+    this.personService.getPersonen().subscribe(personen => this.personen = this.personen);
   }
 }
 

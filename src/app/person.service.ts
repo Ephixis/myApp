@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Person } from './person';
 import { PERSONEN } from './mock-person';
-
+import { Observable, of } from 'rxjs';
 
 
 @Injectable({
@@ -11,7 +11,8 @@ export class PersonService {
   
   constructor() { }
 
-  getPersonen():Person[]{
-    return PERSONEN;
+  getPersonen():Observable<Person[]>{
+    const personen = of(PERSONEN);
+    return personen;
   }
 }
