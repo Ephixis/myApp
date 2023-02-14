@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Person } from '../person';
-import { PERSONEN } from '../mock-person';
+import { PersonService } from '../person.service';
 
 @Component({
   selector: 'app-person',
@@ -9,12 +9,22 @@ import { PERSONEN } from '../mock-person';
 })
 export class PersonComponent {
     
-    personen = PERSONEN;
-    selectedPerson?: Person;
+  personen: Person[] = [];
+  selectedPerson?: Person;
+
+  constructor(private personService: PersonService){};
+  ngOnInit(): void{
+    this.getPersonen();
+  }
+
     
-    onSelect(person: Person): void{
-      this.selectedPerson = person;
-    }
+  onSelect(person: Person): void{
+    this.selectedPerson = person;
+   }
+
+  getPersonen(): void{
+    this.personen = this.personService.getPersonen();
+  }
 }
 
 
