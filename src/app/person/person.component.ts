@@ -18,11 +18,6 @@ export class PersonComponent implements OnInit {
     this.getPersonen();
   }
 
-  onSelect(person: Person): void{
-    this.selectedPerson = person;
-    this.messageService.add(`PersonComponent: Selected Person id=${person.id}`);
-   }
-
   getPersonen(): void{
     this.personService.getPersonen().subscribe(personen => this.personen = personen);
   }

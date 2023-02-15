@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { PersonComponent } from './person/person.component';
 import { PersonDetailComponent } from './person-detail/person-detail.component';
 import { MessagesComponent } from './messages/messages.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { MessagesComponent } from './messages/messages.component';
     AppComponent,
     PersonComponent,
     PersonDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

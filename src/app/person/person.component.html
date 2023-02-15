@@ -2,12 +2,8 @@
 
 <ul class="personen">
   <li *ngFor="let person of personen">
-    <button [class.selected]="person === selectedPerson" type="button" (click)="onSelect(person)">
-      <span class="person-id">Id: {{person.id}} </span>
-      <span class="person-name">Name: {{person.vorname}} {{person.nachname}} </span>
-      <span class="person-email">Email: {{person.email}}</span>
-    </button>
+    <a routerLink="/detail/{{person.id}}">
+      <span class="badge">{{person.id}}</span>{{person.vorname}} {{person.nachname}}
+    </a>  
   </li>
 </ul>
-
-<app-person-detail [person]="selectedPerson"></app-person-detail>

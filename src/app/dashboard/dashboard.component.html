@@ -1,0 +1,6 @@
+<h2>Personen</h2>
+<div class="personen-menu">
+  <a *ngFor="let person of personen" routerLink="/detail/{{person.id}}">
+    {{person.vorname}} {{person.nachname}}
+  </a>
+</div>
