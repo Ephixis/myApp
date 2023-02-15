@@ -17,4 +17,11 @@ export class PersonService {
     this.messageService.add('PersonService: fetched personen');
     return personen;
   }
+
+  getPerson(id: Number): Observable<Person>{
+    const person = PERSONEN.find(p => p.id === id)!;
+    this.messageService.add(`PersonService: fetched person id=${id}`);
+    return of(person);
+  }
+
 }
