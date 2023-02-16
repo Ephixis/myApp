@@ -27,4 +27,11 @@ export class PersonDetailComponent {
     this.location.back();
   }
 
+  save(): void {
+    if (this.person) {
+      this.personService.updatePerson(this.person)
+        .subscribe(() => this.goBack());
+    }
+  }
+
 }

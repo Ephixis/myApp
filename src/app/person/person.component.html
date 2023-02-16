@@ -1,5 +1,20 @@
 <h2>Alle Personen</h2>
 
+<div>
+  
+  <label for="new-id">ID: </label>
+  <input id="new-id" type="number" #PersonId/>
+  <label for="new-Vorname">Vorname: </label>
+  <input id="new-Vorname" #PersonVorname/>
+  <label for="new-Nachname">Nachname: </label>
+  <input id="new-Nachname" #PersonNachname/>
+  <label id="new-Email">Email: </label>
+  <input id="new-Email" #PersonEmail/>
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-Button" (click)="add(PersonId.value, PersonVorname.value, PersonNachname.value, PersonEmail.value)">Add Person</button>
+</div>
+
 <ul class="personen">
   <li *ngFor="let person of personen">
     <a routerLink="/detail/{{person.id}}">
@@ -7,3 +22,5 @@
     </a>  
   </li>
 </ul>
+
+

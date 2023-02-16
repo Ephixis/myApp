@@ -21,6 +21,22 @@ export class PersonComponent implements OnInit {
   getPersonen(): void{
     this.personService.getPersonen().subscribe(personen => this.personen = personen);
   }
+
+  add(a: string, vorname: string, nachname:string, email:string): void {
+    var id = Number(a);
+    vorname = vorname.trim();
+    nachname = nachname.trim();
+    email = email.trim();
+    if (!a || !vorname || !nachname || !email) { return; }
+    this.personService.addPerson({ id, vorname, nachname, email }  as Person)
+      .subscribe(person => {
+        this.personen.push(person);
+      });
+  }
+
+  toNumber(temp: string){
+    return Number(temp.trim());
+  }
 }
 
 
