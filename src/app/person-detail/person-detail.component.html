@@ -1,9 +1,15 @@
 <div *ngIf="person">
     <h2>{{person.vorname | uppercase}} {{person.nachname | uppercase}} Details</h2>
-  <div>id: {{person.id}}</div>
   <div>
-    <label for="person-vorname">Vorname:</label>
-    <input id="hero-name" [(ngModel)]="person.vorname" placeholder="name">
+    <ul>
+      <li>id: {{person.id}}</li>
+      <li><label for="person-vorname">Vorname:</label>
+        <input id="person-vorname" [(ngModel)]="person.vorname" placeholder="Vorname"></li>
+      <li><label for="person-nachname">Nachname:</label>
+        <input id="person-nachname" [(ngModel)]="person.nachname" placeholder="Nachname"></li>
+      <li><label for="person-email">Vorname:</label>
+        <input id="person-email" [(ngModel)]="person.email" placeholder="Email"></li>
+    </ul>
   </div>
   <button type="button" (click)="goBack()">Go back</button>
   <button type="button" (click)="save()">save</button>
