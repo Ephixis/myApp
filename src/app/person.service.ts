@@ -11,7 +11,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class PersonService {
   
-  private personUrl = 'api/person';  // URL to web api
+  private personUrl = 'api/personen';  // URL to web api
   
   constructor(
     private http: HttpClient,
@@ -52,19 +52,16 @@ export class PersonService {
   };
 
 
-  private handleError<T>(operation = 'operation', result?: T) {
-  return (error: any): Observable<T> => {
+    private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
 
-    console.error(error); // log to console instead
+      console.error(error); // log to console instead
     
-    this.log(`${operation} failed: ${error.message}`);
+      this.log(`${operation} failed: ${error.message}`);
 
-    return of(result as T);
-  };
-
-  
-  
-}
+      return of(result as T);
+    };
+  }
 
 addPerson(person: Person): Observable<Person> {
   return this.http.post<Person>(this.personUrl, person, this.httpOptions).pipe(
