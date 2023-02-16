@@ -34,8 +34,9 @@ export class PersonComponent implements OnInit {
       });
   }
 
-  toNumber(temp: string){
-    return Number(temp.trim());
+  delete(person: Person): void {
+    this.personen = this.personen.filter(p => p !== person);
+    this.personService.deletePerson(person.id).subscribe();
   }
 }
 

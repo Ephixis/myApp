@@ -18,7 +18,7 @@ export class DashboardComponent {
   }
 
 getPersonen():void{
-  this.personService.getPersonen().subscribe(personen => this.personen = personen.slice(1,5));
+  this.personService.getPersonen().subscribe(personen => this.personen = personen);
 }
 
 }

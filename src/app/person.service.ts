@@ -70,5 +70,15 @@ addPerson(person: Person): Observable<Person> {
 );
 }
 
+/** DELETE: delete the hero from the server */
+  deletePerson(id: number): Observable<Person> {
+    const url = `${this.personUrl}/${id}`;
+
+    return this.http.delete<Person>(url, this.httpOptions).pipe(
+      tap(_ => this.log(`deleted person id=${id}`)),
+      catchError(this.handleError<Person>('deletePerson'))
+   );
+  }
+
 
 }
