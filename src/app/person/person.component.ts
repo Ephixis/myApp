@@ -22,12 +22,12 @@ export class PersonComponent implements OnInit {
     this.personService.getPersonen().subscribe(personen => this.personen = personen);
   }
 
-  add(a: string, vorname: string, nachname:string, email:string): void {
-    var id = Number(a);
+  add(vorname: string, nachname:string, email:string): void {
+    var id = this.genId();
     vorname = vorname.trim();
     nachname = nachname.trim();
     email = email.trim();
-    if (!a || !vorname || !nachname || !email) { return; }
+    if (!id || !vorname || !nachname || !email) { return; }
     this.personService.addPerson({ id, vorname, nachname, email }  as Person)
       .subscribe(person => {
         this.personen.push(person);
@@ -37,6 +37,10 @@ export class PersonComponent implements OnInit {
   delete(person: Person): void {
     this.personen = this.personen.filter(p => p !== person);
     this.personService.deletePerson(person.id).subscribe();
+  }
+
+  genId(): number {
+    return this.personen.length > 0 ? Math.max(...this.personen.map(personen => personen.id)) + 1 : 1;
   }
 }
 

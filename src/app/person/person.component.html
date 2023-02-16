@@ -2,13 +2,11 @@
 
 <div>
   <ul>
-    <li><label for="new-id">ID: </label><input id="new-id" type="number" #PersonId/></li>
     <li><label for="new-Vorname">Vorname: </label><input id="new-Vorname" #PersonVorname/></li>
     <li><label for="new-Nachname">Nachname: </label><input id="new-Nachname" #PersonNachname/></li>
     <li><label id="new-Email">Email: </label><input id="new-Email" #PersonEmail/></li>
   </ul>
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button type="button" class="add-Button" (click)="add(PersonId.value, PersonVorname.value, PersonNachname.value, PersonEmail.value)">Person anlegen</button>
+  <button type="button" class="add-Button" (click)="add(PersonVorname.value, PersonNachname.value, PersonEmail.value)">Person anlegen</button>
 </div>
   
 <div>
